@@ -1,7 +1,7 @@
 ```css
-/* ------------------------------
-   General Page Styles
------------------------------- */
+/* =========================
+   BASIC STYLES
+========================= */
 
 * {
     box-sizing: border-box;
@@ -9,10 +9,9 @@
 
 body {
     margin: 0;
+    background: #f6f7f9;
+    color: #171717;
     font-family: Georgia, "Times New Roman", serif;
-    background: #f5f3ef;
-    color: #242424;
-    line-height: 1.8;
 }
 
 .container {
@@ -21,32 +20,55 @@ body {
 }
 
 
-/* ------------------------------
-   Header
------------------------------- */
+/* =========================
+   BREAKING NEWS BAR
+========================= */
 
-.site-header {
-    background: #ffffff;
+.breaking-bar {
+    background: #151515;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.breaking-bar .container {
+    display: flex;
+    gap: 18px;
+    padding: 10px 0;
+}
+
+.breaking-bar strong {
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: white;
     border-bottom: 1px solid #ddd;
 }
 
-.site-header .container {
+.header-content {
+    min-height: 75px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    justify-content: space-between;
 }
 
 .logo {
     font-family: Arial, sans-serif;
+    font-weight: 900;
     font-size: 25px;
-    font-weight: bold;
-    letter-spacing: -1px;
+    letter-spacing: 2px;
 }
 
 nav {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 nav a {
@@ -57,24 +79,25 @@ nav a {
 }
 
 nav a:hover {
-    color: #777;
+    text-decoration: underline;
+}
+
+#menuButton {
+    display: none;
 }
 
 
-/* ------------------------------
-   Article Layout
------------------------------- */
+/* =========================
+   ARTICLE
+========================= */
 
-.article-layout {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 60px;
-    padding: 70px 0;
+main {
+    padding: 65px 0;
 }
 
-.article {
-    background: #ffffff;
-    padding: 55px;
+article {
+    background: white;
+    padding: 60px;
 }
 
 .category {
@@ -86,229 +109,343 @@ nav a:hover {
 }
 
 h1 {
-    margin: 10px 0 15px;
-    font-size: clamp(42px, 6vw, 68px);
-    line-height: 1.05;
-    letter-spacing: -2px;
+    max-width: 900px;
+    margin: 15px 0;
+
+    font-size: clamp(44px, 7vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -3px;
 }
 
-.subtitle {
+.lead {
+    max-width: 750px;
     color: #666;
-    font-size: 21px;
-    line-height: 1.5;
+    font-size: 22px;
+    line-height: 1.55;
 }
 
-.article-meta {
+
+/* =========================
+   ARTICLE INFO
+========================= */
+
+.article-info {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 25px 0 40px;
-    color: #777;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 35px 0;
+    padding: 20px 0;
+
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
     font-family: Arial, sans-serif;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #222;
+    color: white;
+
+    font-weight: bold;
+}
+
+.author small {
+    display: block;
+    margin-top: 3px;
+    color: #777;
+    font-size: 12px;
+}
+
+.reading-time {
+    color: #777;
     font-size: 13px;
 }
 
 
-/* ------------------------------
-   Hero
------------------------------- */
+/* =========================
+   HERO
+========================= */
 
-.hero {
-    min-height: 360px;
-    display: flex;
-    align-items: end;
-    padding: 40px;
-    margin-bottom: 45px;
+.hero-image {
+    height: 430px;
+
+    position: relative;
 
     background:
         linear-gradient(
             135deg,
-            #1f2937,
-            #475569,
-            #94a3b8
+            #101820,
+            #34495e,
+            #8c9aa5
         );
+
+    overflow: hidden;
 }
 
-.hero-text {
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+
+    top: 50px;
+    right: 100px;
+}
+
+.hero-image::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+
+    bottom: 40px;
+    left: 100px;
+}
+
+.hero-overlay {
+    position: absolute;
+    left: 40px;
+    bottom: 35px;
+
+    max-width: 550px;
     color: white;
-    max-width: 600px;
 }
 
-.hero-text span {
+.hero-overlay span {
     font-family: Arial, sans-serif;
     font-size: 11px;
     letter-spacing: 2px;
 }
 
-.hero-text h2 {
+.hero-overlay h2 {
+    margin: 10px 0 0;
+    font-size: 35px;
+    line-height: 1.15;
+}
+
+
+/* =========================
+   ARTICLE BODY
+========================= */
+
+.article-body {
+    max-width: 720px;
+    margin: 50px auto;
+}
+
+.article-body p {
+    margin-bottom: 28px;
+
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.article-body h2 {
+    margin-top: 55px;
+    margin-bottom: 20px;
+
     font-size: 34px;
     line-height: 1.2;
-    margin-bottom: 0;
-}
-
-
-/* ------------------------------
-   Article Content
------------------------------- */
-
-.article-content {
-    font-size: 18px;
-}
-
-.article-content h2 {
-    margin-top: 45px;
-    font-size: 32px;
-    line-height: 1.2;
-}
-
-.article-content p {
-    margin: 0 0 25px;
 }
 
 blockquote {
-    margin: 40px 0;
-    padding: 20px 30px;
-    border-left: 4px solid #333;
-    background: #f4f4f4;
-    font-size: 24px;
+    margin: 45px 0;
+    padding: 25px 30px;
+
+    border-left: 5px solid #222;
+    background: #f3f3f3;
+
+    font-size: 25px;
+    line-height: 1.5;
     font-style: italic;
 }
 
 
-/* ------------------------------
-   Button
------------------------------- */
+/* =========================
+   BUTTONS
+========================= */
 
-button {
-    border: none;
-    background: #222;
-    color: white;
-    padding: 14px 22px;
+.article-actions {
+    max-width: 720px;
+    margin: auto;
+
+    display: flex;
+    gap: 12px;
+}
+
+.article-actions button {
+    padding: 13px 20px;
+
+    border: 1px solid #222;
+    background: white;
+    color: #222;
+
     font-family: Arial, sans-serif;
-    font-size: 14px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #555;
+.article-actions button:hover {
+    background: #222;
+    color: white;
 }
 
-#statusMessage {
-    margin-top: 15px;
-    color: #4b6b4b;
+#actionMessage {
+    max-width: 720px;
+    margin: 15px auto 0;
+
     font-family: Arial, sans-serif;
     font-size: 14px;
+    color: #587458;
 }
 
 
-/* ------------------------------
-   Sidebar
------------------------------- */
+/* =========================
+   FOOTER
+========================= */
 
-.sidebar {
+footer {
+    background: #171717;
+    color: #bbb;
+    padding: 40px 0;
+
     font-family: Arial, sans-serif;
 }
 
-.sidebar-card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.sidebar-card h3 {
-    margin-top: 0;
-    font-size: 16px;
+.footer-content strong {
+    color: white;
+    letter-spacing: 2px;
 }
 
-.sidebar-card p {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.6;
+.footer-content p {
+    font-size: 13px;
 }
 
-.sidebar-card a {
-    display: block;
-    padding: 8px 0;
-    color: #444;
-    text-decoration: none;
-    font-size: 14px;
-    border-bottom: 1px solid #eee;
-}
-
-.sidebar-card a:hover {
-    color: #888;
-}
-
-
-/* ------------------------------
-   Online Status
------------------------------- */
-
-.online {
+.status {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.online span {
+.status-dot {
     width: 9px;
     height: 9px;
+
     border-radius: 50%;
-    background: #42a05a;
-    display: inline-block;
+    background: #4caf50;
 }
 
-
-/* ------------------------------
-   Footer
------------------------------- */
-
-footer {
-    background: #222;
-    color: #aaa;
+.copyright {
+    margin: 30px 0 0;
     text-align: center;
-    padding: 30px;
-    font-family: Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
-/* ------------------------------
-   Mobile Design
------------------------------- */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
-    .site-header .container {
+    .breaking-bar .container {
         flex-direction: column;
-        gap: 15px;
+        gap: 3px;
     }
 
     nav {
-        gap: 15px;
+        display: none;
     }
 
-    .article-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px 0;
+    #menuButton {
+        display: block;
+
+        border: none;
+        background: none;
+
+        font-size: 22px;
+        cursor: pointer;
     }
 
-    .article {
-        padding: 30px 22px;
+    main {
+        padding: 25px 0;
+    }
+
+    article {
+        padding: 30px 20px;
     }
 
     h1 {
         font-size: 44px;
+        letter-spacing: -2px;
     }
 
-    .hero {
-        min-height: 280px;
-        padding: 25px;
+    .lead {
+        font-size: 19px;
     }
 
-    .sidebar {
-        order: 2;
+    .article-info {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .hero-overlay {
+        left: 25px;
+        right: 25px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 27px;
+    }
+
+    .article-body p {
+        font-size: 17px;
+    }
+
+    .article-actions {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
 }
 ```
+
