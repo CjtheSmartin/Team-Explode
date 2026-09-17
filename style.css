@@ -1,58 +1,70 @@
 ```css
-/* =========================
-   BASIC STYLES
-========================= */
+/* ========================================
+   NEWS ARTICLE — MAIN STYLES
+======================================== */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    background: #f6f7f9;
-    color: #171717;
+    background: #f5f5f5;
+    color: #181818;
     font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
 }
+
+
+/* ========================================
+   PAGE CONTAINER
+======================================== */
 
 .container {
-    width: min(1100px, 92%);
-    margin: auto;
+    width: min(1200px, 92%);
+    margin: 0 auto;
 }
 
 
-/* =========================
-   BREAKING NEWS BAR
-========================= */
+/* ========================================
+   NEWS BAR
+======================================== */
 
-.breaking-bar {
-    background: #151515;
+.breaking-news {
+    background: #111;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
 }
 
-.breaking-bar .container {
+.breaking-news .container {
     display: flex;
-    gap: 18px;
-    padding: 10px 0;
+    align-items: center;
+    gap: 15px;
+    padding: 9px 0;
 }
 
-.breaking-bar strong {
+.breaking-label {
+    font-weight: bold;
     letter-spacing: 1px;
 }
 
 
-/* =========================
+/* ========================================
    HEADER
-========================= */
+======================================== */
 
-header {
-    background: white;
-    border-bottom: 1px solid #ddd;
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
 }
 
-.header-content {
-    min-height: 75px;
+.header-inner {
+    min-height: 78px;
 
     display: flex;
     align-items: center;
@@ -60,392 +72,33 @@ header {
 }
 
 .logo {
-    font-family: Arial, sans-serif;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
     font-weight: 900;
-    font-size: 25px;
-    letter-spacing: 2px;
+    letter-spacing: -1px;
 }
 
-nav {
+.navigation {
     display: flex;
-    gap: 30px;
+    gap: 28px;
 }
 
-nav a {
-    color: #333;
+.navigation a {
+    color: #222;
     text-decoration: none;
-    font-family: Arial, sans-serif;
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    font-weight: 600;
 }
 
-nav a:hover {
+.navigation a:hover {
     text-decoration: underline;
 }
 
-#menuButton {
-    display: none;
-}
 
-
-/* =========================
-   ARTICLE
-========================= */
-
-main {
-    padding: 65px 0;
-}
-
-article {
-    background: white;
-    padding: 60px;
-}
-
-.category {
-    color: #777;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-h1 {
-    max-width: 900px;
-    margin: 15px 0;
-
-    font-size: clamp(44px, 7vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -3px;
-}
-
-.lead {
-    max-width: 750px;
-    color: #666;
-    font-size: 22px;
-    line-height: 1.55;
-}
-
-
-/* =========================
-   ARTICLE INFO
-========================= */
-
-.article-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin: 35px 0;
-    padding: 20px 0;
-
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-
-    font-family: Arial, sans-serif;
-}
-
-.author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.author-avatar {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    background: #222;
-    color: white;
-
-    font-weight: bold;
-}
-
-.author small {
-    display: block;
-    margin-top: 3px;
-    color: #777;
-    font-size: 12px;
-}
-
-.reading-time {
-    color: #777;
-    font-size: 13px;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero-image {
-    height: 430px;
-
-    position: relative;
-
-    background:
-        linear-gradient(
-            135deg,
-            #101820,
-            #34495e,
-            #8c9aa5
-        );
-
-    overflow: hidden;
-}
-
-.hero-image::before {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-
-    top: 50px;
-    right: 100px;
-}
-
-.hero-image::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-
-    bottom: 40px;
-    left: 100px;
-}
-
-.hero-overlay {
-    position: absolute;
-    left: 40px;
-    bottom: 35px;
-
-    max-width: 550px;
-    color: white;
-}
-
-.hero-overlay span {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-.hero-overlay h2 {
-    margin: 10px 0 0;
-    font-size: 35px;
-    line-height: 1.15;
-}
-
-
-/* =========================
-   ARTICLE BODY
-========================= */
-
-.article-body {
-    max-width: 720px;
-    margin: 50px auto;
-}
-
-.article-body p {
-    margin-bottom: 28px;
-
-    font-size: 19px;
-    line-height: 1.9;
-}
-
-.article-body h2 {
-    margin-top: 55px;
-    margin-bottom: 20px;
-
-    font-size: 34px;
-    line-height: 1.2;
-}
-
-blockquote {
-    margin: 45px 0;
-    padding: 25px 30px;
-
-    border-left: 5px solid #222;
-    background: #f3f3f3;
-
-    font-size: 25px;
-    line-height: 1.5;
-    font-style: italic;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.article-actions {
-    max-width: 720px;
-    margin: auto;
-
-    display: flex;
-    gap: 12px;
-}
-
-.article-actions button {
-    padding: 13px 20px;
-
-    border: 1px solid #222;
-    background: white;
-    color: #222;
-
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-}
-
-.article-actions button:hover {
-    background: #222;
-    color: white;
-}
-
-#actionMessage {
-    max-width: 720px;
-    margin: 15px auto 0;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #587458;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #171717;
-    color: #bbb;
-    padding: 40px 0;
-
-    font-family: Arial, sans-serif;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-content strong {
-    color: white;
-    letter-spacing: 2px;
-}
-
-.footer-content p {
-    font-size: 13px;
-}
-
-.status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.status-dot {
-    width: 9px;
-    height: 9px;
-
-    border-radius: 50%;
-    background: #4caf50;
-}
-
-.copyright {
-    margin: 30px 0 0;
-    text-align: center;
-    font-size: 12px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .breaking-bar .container {
-        flex-direction: column;
-        gap: 3px;
-    }
-
-    nav {
-        display: none;
-    }
-
-    #menuButton {
-        display: block;
-
-        border: none;
-        background: none;
-
-        font-size: 22px;
-        cursor: pointer;
-    }
-
-    main {
-        padding: 25px 0;
-    }
-
-    article {
-        padding: 30px 20px;
-    }
-
-    h1 {
-        font-size: 44px;
-        letter-spacing: -2px;
-    }
-
-    .lead {
-        font-size: 19px;
-    }
-
-    .article-info {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero-image {
-        height: 300px;
-    }
-
-    .hero-overlay {
-        left: 25px;
-        right: 25px;
-    }
-
-    .hero-overlay h2 {
-        font-size: 27px;
-    }
-
-    .article-body p {
-        font-size: 17px;
-    }
-
-    .article-actions {
-        flex-direction: column;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-}
+/* ========================================
+   ARTICLE PAGE
+========================
 ```
-
